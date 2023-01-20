@@ -1,0 +1,17 @@
+* {
+    transition: all 1000ms ease;
+}
+
+
+.dark-theme {
+    background-color: black;
+}
+
+.dark-theme * {
+    color: white;
+}
+
+/* .dark-theme button {
+    background-color: black;
+    border: 8px solid red;
+} */
