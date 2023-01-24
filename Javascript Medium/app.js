@@ -111,8 +111,88 @@ function reverseString(str) {
     }
 
     return reverseString
+
+    for (let i = 0; i < str.length; i++) {
+        reverseString = str[i] + reverseString; // character being added in front of the previous iteration(ie reverse order)
+    }
+
+    return reverseString
 }
+
+// 'abc'.split("")              - convert string to array
+// 'abc'.split('').reverse()     - to reverse array
+// 'abc'.split('').reverse().join('')    - converts back into string
 
 console.log(reverseString('abc'));
 console.log(reverseString('David'));
 console.log(reverseString('This is cool'));
+
+//Turn every element in an array into 0
+console.log("Turn every element in an array into 0")
+
+function convertToZeros(arr) {
+    return arr.map(element => { return 0})
+
+    // method 1
+    for (let i = 0; i < arr.length; i++){
+        arr[i] = 0
+    }
+    // method 2
+    return new Array(arr.length).fill(0);
+}
+
+console.log(convertToZeros([5, 100, 0]));
+console.log(convertToZeros([12]));
+console.log(convertToZeros([1, 2, 3, 4, 5]));
+
+//Filter out all the apples
+console.log("Filter out all the apples")
+
+function removeApples(arr) {
+    return arr.filter(elem => elem !== 'Apple')
+
+
+//    let noApples = []
+   
+//    for (i = 0; i < arr.length; i++) {
+//     if (arr[i] !== 'Apple') {
+//         noApples.push(arr[i]);
+//     }
+//    }
+
+//    return noApples
+}
+
+console.log(removeApples(['Banana', 'Orange', 'Apple']));
+console.log(removeApples(['Tomato', 'Orange', 'Banana']));
+console.log(removeApples(['Apple', 'Banana', 'Orange']));
+
+//Filter out all of the falsy values
+console.log("Filter out all of the falsy values")
+
+function filterOutFalsy(arr) {
+    // let filterOutFalsy = []
+    // for (i = 0; i < arr.length; i++) {
+    //     if (!!arr[i]) {
+    //         filterOutFalsy.push(arr[i])
+    //     }
+    // }
+
+    // return filterOutFalsy
+    return arr.filter(elem => !!elem)
+}
+
+console.log(filterOutFalsy(['', [], null, undefined, '0']));
+console.log(filterOutFalsy(['Tomato', 'Orange', 'Banana', false]));
+console.log(filterOutFalsy(['Apple', 'Banana', 'Orange']));
+
+//Truthy to true, Falsy to false
+console.log("Truthy to true, Falsy to false")
+
+function convertToBoolean(arr) {
+    return arr.map(elem => !!elem)
+
+
+}
+
+console.log(convertToBoolean([500, 0, "David", '', []]));
