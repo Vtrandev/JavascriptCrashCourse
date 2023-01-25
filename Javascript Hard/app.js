@@ -50,15 +50,11 @@ console.log(
 //Find all the posts by a single user
 console.log("Find all the posts by a single user")
 
-const userIdRef = document.querySelector(".userID");
-
-
 async function postsbyUser(userID) {
     const promise = await fetch('https://jsonplaceholder.typicode.com/posts')
-    const result = await promise.json()             //Only need .json when talking to a backend server
+    const result = await promise.json()   //Only need .json when talking to a backend server
     const posts = result.filter(elem => elem.userId === userID)
     console.log(posts)
-    userIdRef.innerHTML = posts
 }
 
 postsbyUser(4);
@@ -66,17 +62,20 @@ postsbyUser(4);
 //First 6 incomplete Todos
 console.log("First 6 incomplete Todos")
 
-async function firstSixIncomplete() {
+async function firstSixIncomplete(num) {
+    let counter = 0;
     const promise = await fetch('https://jsonplaceholder.typicode.com/todos')
     const result = await promise.json()
-    const posts = result.filter(elem => {
-            if (elem.completed === false){
-                return true
-            }
-    }
-    )
+
+    // const incompleteTasks = result.filter(elem => !elem.completed).slice(0, 6);
+    const posts = result.filter((elem) => {
+      if (!elem.completed && counter < num) {
+        counter++;
+        return true;
+      }
+    });
     console.log(posts);
 }
 
-firstSixIncomplete();
+firstSixIncomplete(6);
 
